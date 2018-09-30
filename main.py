@@ -50,7 +50,7 @@ def welcome():
     if email != "":
         email = email
     
-    if " " in email or "@" not in email and "." not in email or len(email) < 3 or len(email) < 20:
+    if "@" and "." not in email or len(email) < 3 or len(email) > 20:
         email_error = 'Email address invalid'
         #return render_template('home_page.html', email=email, email_error=email_error)
     
