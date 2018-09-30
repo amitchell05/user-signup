@@ -18,13 +18,9 @@ def welcome():
     password_error = ""
     verify_error = ""
     email_error = ""
-
-    if username == "":
-        username_error = 'Enter a username'
-        #return render_template('home_page.html', username=username, username_error=username_error)
     
     if " " in username or len(username) < 3 or len(username) > 20:
-        username_error = "Username invalid"
+        username_error = "Enter a valid username"
 
     if password == "":
         password_error = 'Enter a password'
@@ -52,16 +48,18 @@ def welcome():
     
     if "@" and "." not in email or len(email) < 3 or len(email) > 20:
         email_error = 'Email address invalid'
-        #return render_template('home_page.html', email=email, email_error=email_error)
     
-    if not username_error and not password_error and not verify_error or not email_error:
+    if not username_error and not password_error and not verify_error:
         return render_template('welcome.html', name=username)
     
     else:
         return render_template('home_page.html',
         username_error=username_error, 
         password_error=password_error,
-        verify_error=verify_error,
+        verify_error=verify_error)
+    
+    if email_error:
+        return render_template('home_page.html',
         email_error=email_error)
         
 app.run()
