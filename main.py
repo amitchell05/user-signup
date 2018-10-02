@@ -43,19 +43,20 @@ def welcome():
             password = ""
             verify = ""
 
-    #TODO need to fix "@" and "." validation; len validation is fine
     if len(email) > 1:
         if "@" not in email or "." not in email or len(email) < 3 or len(email) > 20:
             email_error = 'Email address invalid'
 
     if not username_error and not password_error and not verify_error and not email_error:
-        return render_template('welcome.html', name=username)
+        return render_template('welcome.html', username=username)
     
     else:
         return render_template('home_page.html',
-        username_error=username_error, 
+        username=username,
+        username_error=username_error,
         password_error=password_error,
         verify_error=verify_error,
+        email=email,
         email_error=email_error) 
         
 app.run()
