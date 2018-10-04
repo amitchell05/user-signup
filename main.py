@@ -34,7 +34,7 @@ def valid_email(string):
             at_count += 1
     
     # works with asdfasdfcom and asdf@asdf and asdf.asdf now, but maybe refactor?
-    if not valid_len(string) == True or not no_spaces(string) == True or p_count > 1 or at_count > 1 or (p_count == 0 and at_count == 0) or p_count == 0 or at_count == 0:
+    if not valid_len(string) or not no_spaces(string) or p_count > 1 or at_count > 1 or (p_count == 0 and at_count == 0) or p_count == 0 or at_count == 0:
         return False
     return True
 
@@ -50,22 +50,22 @@ def welcome():
     verify_error = ""
     email_error = ""
     
-    if no_spaces(username) == False or is_empty(username) == True or valid_len(username) == False:
+    if not no_spaces(username) or is_empty(username) or not valid_len(username):
         username_error = "Enter a valid username"
 
-    if no_spaces(password) == False or is_empty(password) == True or valid_len(password) == False:
+    if not no_spaces(password) or is_empty(password) or not valid_len(password):
         password_error = 'Enter a valid password'
         password = ""
 
-    if no_spaces(verify) == False or is_empty(verify) == True or valid_len(verify) == False:
+    if not no_spaces(verify) or is_empty(verify) or not valid_len(verify):
         verify = 'Reenter your password'
         verify = ""
     
     if password != verify:
-        if no_spaces(password) == False or is_empty(password) == True or valid_len(password) == False:
+        if not no_spaces(password) or is_empty(password) or not valid_len(password):
             password_error = 'Enter a valid password'
             password = ""
-        elif no_spaces(verify) == False or is_empty(verify) == True or valid_len(verify) == False:
+        elif not no_spaces(verify) or is_empty(verify) or not valid_len(verify):
             verify_error = 'Reenter your password'
             verify = ""
         else:
@@ -75,7 +75,7 @@ def welcome():
             verify = ""
 
     if len(email) > 1:
-        if valid_email(email) == False:
+        if not valid_email(email):
             email_error = 'Enter a valid Email'
 
     if not username_error and not password_error and not verify_error and not email_error:
