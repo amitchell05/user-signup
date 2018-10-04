@@ -33,7 +33,7 @@ def valid_email(string):
             at_count += 1
     
     # valid_len and no_spaces work; p_count and at_count don't work
-    if valid_len(string) == False or no_spaces(string) == False or (p_count > 1 and at_count > 1):
+    if valid_len(string) == False or no_spaces(string) == False or p_count > 1 or at_count > 1:
         return False
     return True
 
