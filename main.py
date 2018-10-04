@@ -44,7 +44,7 @@ def welcome():
             verify = ""
 
     if len(email) > 1:
-        if "@" not in email or "." not in email or len(email) < 3 or len(email) > 20:
+        if "@" not in email or "." not in email or " " in email or len(email) < 3 or len(email) > 20:
             email_error = 'Email address invalid'
 
     if not username_error and not password_error and not verify_error and not email_error:
