@@ -26,14 +26,15 @@ def valid_len(string):
 def valid_email(string):
     p_count = 0
     at_count = 0
+
     for char in string:
         if char == ".":
             p_count += 1
         elif char == "@":
             at_count += 1
     
-    # valid_len and no_spaces work; p_count and at_count don't work
-    if valid_len(string) == False or no_spaces(string) == False or p_count > 1 or at_count > 1:
+    # works with asdfasdfcom and asdf@asdf and asdf.asdf now, but maybe refactor?
+    if not valid_len(string) == True or not no_spaces(string) == True or p_count > 1 or at_count > 1 or (p_count == 0 and at_count == 0) or p_count == 0 or at_count == 0:
         return False
     return True
 
