@@ -62,7 +62,7 @@ def welcome():
     
     if password != verify:
         if no_spaces(password) == False or is_empty(password) == True or valid_len(password) == False:
-            password_error = 'Enter a password'
+            password_error = 'Enter a valid password'
             password = ""
         elif no_spaces(verify) == False or is_empty(verify) == True or valid_len(verify) == False:
             verify_error = 'Reenter your password'
@@ -75,7 +75,7 @@ def welcome():
 
     if len(email) > 1:
         if valid_email(email) == False:
-            email_error = 'Email address invalid'
+            email_error = 'Enter a valid Email'
 
     if not username_error and not password_error and not verify_error and not email_error:
         return render_template('welcome.html', username=username)
